@@ -1,11 +1,11 @@
-#ifndef GOLEM_HPP
-#define GOLEM_HPP
+#ifndef WIZARD_HPP
+#define WIARD_HPP
 #include "Character.hpp"
 #include <string>
 #include <iostream>
-class Golem : public Character {
+class Wizard : public Character {
     public:
-        Golem(std::string name);
+        Wizard(std::string name);
         void attack(Character& target) override;
 };
 #endif

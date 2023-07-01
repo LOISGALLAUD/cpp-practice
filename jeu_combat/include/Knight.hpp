@@ -1,11 +1,11 @@
-#ifndef GOLEM_HPP
-#define GOLEM_HPP
+#ifndef KNIGHT_HPP
+#define KNIGHT_HPP
 #include "Character.hpp"
 #include <string>
 #include <iostream>
-class Golem : public Character {
+class Knight : public Character {
     public:
-        Golem(std::string name);
+        Knight(std::string name);
         void attack(Character& target) override;
 };
 #endif

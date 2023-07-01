@@ -1,11 +1,11 @@
-#include "../include/Golem.hpp"
+#include "Golem.hpp"
 #include <iostream>
-Golem :: Golem(std::string nom): Personnage(200, 100, 10, 0, nom) {
-    std::cout << "Création de " << nom << " de classe "
+Golem :: Golem(std::string name): Character(200, 100, 10, 0, name) {
+    std::cout << "Creating " << name << " of class "
         << "Golem" << std::endl;
 }
-void Golem :: attaquer(Personnage& cible) {
-    std::cout << nom << " attaque " << cible.getNom()
-        << " avec son poing!" << std::endl;
-    cible.recevoirDegats(force);
+void Golem :: attack(Character& target) {
+    std::cout << name << " attacks " << target.getName()
+        << " with its fists!" << std::endl;
+    target.receiveDamage(strength);
 }
