@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "GOMATA ANIMATION");
+    sf::RenderWindow window(sf::VideoMode(1000, 400), "GOMATA ANIMATION");
 
     std::vector<sf::Texture> frames;
     for (int i = 1; i <= 15; ++i) {
@@ -12,10 +12,15 @@ int main() {
         frames.push_back(texture);
     }
 
-    sf::Sprite sprite;
-    sprite.setTexture(frames[0]);
-    sprite.setPosition(10, 10);
-    sprite.setScale(0.5f, 0.5f);
+    std::vector<sf::Sprite> sprites;
+    for (int i = 1; i <= 4; ++i) {
+        sf::Sprite sprite;
+        sprite.setTexture(frames[0]);
+        sprite.setColor(sf::Color(255, 255, 255, 255));
+        sprite.setPosition(10+250*i, 50);
+        sprite.setScale(0.5f, 0.5f);
+        sprites.push_back(sprite);
+    }
 
     // Variables pour l'animation
     int currentFrame = 0;
@@ -40,24 +45,36 @@ int main() {
         if (timer >= frameTime) {
             timer = 0.0f;
             currentFrame = (currentFrame + 1) % frameCount;
-            sprite.setTexture(frames[currentFrame]);
+            for (auto& sprite : sprites) {
+                sprite.setTexture(frames[currentFrame]);
+            }
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            sprite.move(-moveSpeed, 0);
+            for (auto& sprite : sprites) {
+                sprite.move(-moveSpeed, 0);
+            }
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            sprite.move(moveSpeed, 0);
+            for (auto& sprite : sprites) {
+                sprite.move(moveSpeed, 0);
+            }
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-            sprite.move(0, -moveSpeed);
+            for (auto& sprite : sprites) {
+                sprite.move(0, -moveSpeed);
+            }
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-            sprite.move(0, moveSpeed);
+            for (auto& sprite : sprites) {
+                sprite.move(0, moveSpeed);
+            }
         }
 
         window.clear(sf::Color::Black);
-        window.draw(sprite);
+        for (auto& sprite : sprites) {
+            window.draw(sprite);
+        }
         window.display();
     }
 
