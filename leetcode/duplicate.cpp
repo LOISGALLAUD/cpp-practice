@@ -6,6 +6,7 @@ at least twice in the array, and return false if every element is distinct.
 */
 
 #include <vector>
+#include <set>
 #include <iostream>
 #include <algorithm>
 
@@ -23,6 +24,20 @@ public:
             }
         }
         return false;
+    }
+
+    bool containsDuplicate2(std::vector<int> &nums)
+    {
+        std::set<int> s;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            s.insert(nums[i]);
+        }
+        if (s.size() == nums.size())
+        {
+            return false;
+        }
+        return true;
     }
 };
 
