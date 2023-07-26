@@ -46,20 +46,24 @@ public:
     int romanToInt(std::string s)
     {
         int result = 0;
-        int prev = 0;
-        for (int i = s.length() - 1; i >= 0; --i)
+        int *prev = new int(0);
+        int *i = new int(s.length() - 1);
+        for (*i; *i >= 0; --(*i))
         {
-            int curr = romanToIntMap[s[i]];
-            if (curr < prev)
+            int *curr = new int(romanToIntMap[s[*i]]);
+            if (*curr < *prev)
             {
-                result -= curr;
+                result -= *curr;
             }
             else
             {
-                result += curr;
+                result += *curr;
             }
-            prev = curr;
+            *prev = *curr;
+            delete curr;
         }
+        delete prev;
+        delete i;
         return result;
     }
 };
