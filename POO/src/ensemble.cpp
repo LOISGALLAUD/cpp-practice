@@ -44,7 +44,7 @@ void Ensemble::retirer(int element)
     }
 }
 
-bool Ensemble::appartient(int element)
+bool Ensemble::appartient(int element) const
 {
     for (int i = 0; i < nbElements; i++)
     {
@@ -56,11 +56,11 @@ bool Ensemble::appartient(int element)
     return false;
 }
 
-int Ensemble::cardinal() { return nbElements; }
+int Ensemble::cardinal() const { return nbElements; }
 
-bool Ensemble::estVide() { return nbElements == 0; }
+bool Ensemble::estVide() const { return nbElements == 0; }
 
-bool Ensemble::estInclus(Ensemble &ensemble)
+bool Ensemble::estInclus(Ensemble &ensemble) const
 {
     for (int i = 0; i < nbElements; i++)
     {
@@ -123,6 +123,7 @@ void Ensemble::afficher()
     for (int i = 0; i < nbElements; i++)
     {
         std::cout << elements[i];
+        // Placement de la virgule
         if (i < nbElements - 1)
         {
             std::cout << ", ";

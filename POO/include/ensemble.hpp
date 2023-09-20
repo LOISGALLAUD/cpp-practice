@@ -10,10 +10,10 @@ class Ensemble
     ~Ensemble();
     void ajouter(int);
     void retirer(int);
-    bool appartient(int);
-    int cardinal();
-    bool estVide();
-    bool estInclus(Ensemble &);
+    bool appartient(int) const;
+    int cardinal() const;
+    bool estVide() const;
+    bool estInclus(Ensemble &) const;
     bool estEgal(Ensemble &);
     Ensemble reunion(Ensemble &);
     Ensemble intersection(Ensemble &);
