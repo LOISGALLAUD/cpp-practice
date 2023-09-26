@@ -4,60 +4,40 @@
 
 Inventory::~Inventory()
 {
-    for (int i = 0; i < MAX_ITEMS; i++)
-    {
-        delete items[i];
-    }
-    delete[] items;
-    for (int i = 0; i < 2; i++)
-    {
-        delete weapons[i];
-    }
-    delete[] weapons;
+    std::cout << "Inventory destructor called" << std::endl;
 }
 
 void Inventory::displayInventory() const
 {
     // Display items
-    for (int i = 0; i < MAX_ITEMS; i++)
-    {
-        if (items[i] != nullptr)
-        {
-            std::cout << items[i]->getName() << std::endl;
-        }
-    }
+    // std::cout << "Items: " << std::endl;
+    // for (int i = 0; i < items.size(); i++)
+    // {
+    //     std::cout << items[i]->getName() << std::endl;
+    // }
     // Display weapons
-    for (int i = 0; i < 2; i++)
+    std::cout << "Weapons: " << std::endl;
+
+    for (std::vector<Weapon *>::size_type i = 0; i < weapons.size(); i++)
     {
-        if (weapons[i] != nullptr)
-        {
-            std::cout << weapons[i]->getName() << std::endl;
-        }
+        std::cout << weapons[i]->getName() << std::endl;
     }
 }
 
-void Inventory::addItem(Item *item_ptr)
-{
-    for (int i = 0; i < MAX_ITEMS; i++)
-    {
-        if (items[i] == nullptr)
-        {
-            items[i] = item_ptr;
-            return;
-        }
-    }
-    std::cout << "Inventory is full" << std::endl;
-}
+// void Inventory::addItem(Item *item_ptr)
+// {
+//     items.push_back(item_ptr);
+//     std::cout << "Inventory is full" << std::endl;
+// }
 
-void Inventory::equipWeapon(Weapon *weapon_ptr)
+void Inventory::addWeapon(Weapon *weapon_addr)
 {
-    for (int i = 0; i < MAX_WEAPONS; i++)
+    if (weapons.size() < MAX_WEAPONS)
     {
-        if (weapons[i] == nullptr)
-        {
-            weapons[i] = weapon_ptr;
-            return;
-        }
+        weapons.push_back(weapon_addr);
     }
-    std::cout << "No more space for weapons" << std::endl;
+    else
+    {
+        std::cout << "Inventory is full" << std::endl;
+    }
 }

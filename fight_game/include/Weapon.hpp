@@ -5,13 +5,13 @@
 class Weapon : public Item
 {
   public:
-    Weapon(std::string name, int damage, int price);
+    ~Weapon();
+    Weapon(std::string name, size_t rarity, int price, int damage);
     void displayInfo() override;
     int getDamage() const;
     int getPrice() const;
 
   private:
     int damage;
-    int price;
 };
 #endif

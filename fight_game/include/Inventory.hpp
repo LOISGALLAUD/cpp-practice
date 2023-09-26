@@ -12,12 +12,12 @@ class Inventory
     ~Inventory();
     Inventory() = default;
     void displayInventory() const;
-    void addItem(Item *item_ptr);
-    void equipWeapon(Weapon *weapon_ptr);
+    // void addItem(Item *item_ptr);
+    void addWeapon(Weapon *weapon);
 
   private:
-    Item **items = new Item *[10];
-    Weapon **weapons = new Weapon *[2];
+    // std::vector<Item *> items;
+    std::vector<Weapon *> weapons;
     //    std::vector<Armor *> armors;
 };
 #endif
