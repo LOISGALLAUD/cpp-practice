@@ -5,3 +5,8 @@ classe inventaire avec equipements, objets et potions
 - [V] Animer et afficher un simple sprite qui respire.
     - [x] Créer une classe `Sprite` qui gère l'affichage d'un sprite.
 - [x] Animer et afficher un sprite qui marche.
+
+---------------------------
+
+- [x] Donner des types aux personnages
+- [x] Ajouter la magie (requiert du mana)

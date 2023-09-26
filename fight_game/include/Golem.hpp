@@ -8,7 +8,7 @@ class Golem : public Character
   public:
     // Constructor & Destructor
     ~Golem() = default;
-    Golem(std::string name) : Character(name, 200, 100){};
+    Golem(std::string name) : Character(name, 200, 30){};
     void attack(Character &target) override;
 };
 #endif

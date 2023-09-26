@@ -8,7 +8,7 @@ class Knight : public Character
   public:
     // Constructor & Destructor
     ~Knight() = default;
-    Knight(std::string name) : Character(name, 100, 100){};
+    Knight(std::string name) : Character(name, 100, 40){};
     void attack(Character &target) override;
 };
 #endif

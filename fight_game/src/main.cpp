@@ -11,7 +11,8 @@ https://github.com/LOISGALLAUD
 
 int main()
 {
-    Weapon sword("Sword", 1, 10, 10); // name, rarity, price, damage
+    Weapon *sword =
+        new Weapon("Sword", 1, 10, 10); // name, rarity, price, damage
     // Weapon staff("Staff", 1, 10, 10);
     // Weapon rock("Rock", 1, 10, 10);
 
@@ -19,7 +20,8 @@ int main()
     Wizard magnus("Magnus");
     Golem gomata("Gomâta");
 
-    // dornar.equip(sword);
+    dornar.collect(sword);
+    dornar.collect(sword);
     // dornar.equip(staff);
     // magnus.equip(rock);
 
@@ -27,9 +29,8 @@ int main()
     // magnus.attack(dornar);
     // gomata.attack(dornar);
 
-    // dornar.displayInfo();
-    // magnus.displayInfo();
-    // gomata.displayInfo();
+    dornar.displayInfo();
 
+    delete sword;
     return 0;
 }

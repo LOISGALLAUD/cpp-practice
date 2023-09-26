@@ -31,8 +31,8 @@ class Character
     void displayInfo() const;
     void receiveDamage(int damage);
     virtual void attack(Character &target) = 0; // Pure virtual method
+    void collect(Item *item_ptr);
 
-    // void collect(Item *item_ptr);
     // void equip(Weapon &weapon_ptr);
 
     // Booleans

@@ -25,11 +25,15 @@ void Character::receiveDamage(int damage)
         std::cout << name << " died." << std::endl;
 }
 
-// void Character::collect(Item *item_ptr)
-// {
-//     std::cout << name << " collected " << item_ptr->getName() << std::endl;
-//     inventory.addItem(item_ptr);
-// }
+void Character::collect(Item *item_ptr)
+{
+    if (inventory.addItem(item_ptr))
+        std::cout << name << " collected " << item_ptr->getName() << std::endl;
+    else
+        std::cout << name << " couldn't collect " << item_ptr->getName()
+                  << std::endl;
+}
+
 // void Character::equip(Weapon &weapon)
 // {
 //     inventory.addWeapon(&weapon);

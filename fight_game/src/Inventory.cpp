@@ -9,14 +9,17 @@ void Inventory::displayInventory() const
     }
 }
 
-void Inventory::collect(Item *item_ptr)
+bool Inventory::addItem(Item *item_ptr)
 {
+    // Return true if item was added, false otherwise
     if (items.size() < max_items)
     {
         items.push_back(item_ptr);
+        return true;
     }
     else
     {
-        std::cout << "Inventory is full!" << std::endl;
+        std::cout << "Inventory is full." << std::endl;
+        return false;
     }
 }

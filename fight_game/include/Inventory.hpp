@@ -1,6 +1,6 @@
 #ifndef INVENTORY_HPP
 #define INVENTORY_HPP
-#define MAX_ITEMS 10
+#define MAX_ITEMS 1
 
 #include "Item.hpp"
 #include "Weapon.hpp"
@@ -28,7 +28,7 @@ class Inventory
 
     // Methods
     void displayInventory() const;
-    void collect(Item *item_ptr);
+    bool addItem(Item *item_ptr);
 
   private:
     size_t max_items = MAX_ITEMS;
