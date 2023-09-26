@@ -12,7 +12,6 @@ void Character::displayInfo() const
     std::cout << "Name: " << name << std::endl;
     std::cout << "HP: " << health << std::endl;
     std::cout << "Strength: " << strength << std::endl;
-    std::cout << "Inventory: " << std::endl;
     inventory.displayInventory();
     std::cout << std::endl;
 }

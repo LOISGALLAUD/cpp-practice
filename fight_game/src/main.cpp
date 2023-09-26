@@ -4,13 +4,14 @@ https://github.com/LOISGALLAUD
 */
 
 #include "../include/Golem.hpp"
+#include "../include/Item.hpp"
 #include "../include/Knight.hpp"
 #include "../include/Weapon.hpp"
 #include "../include/Wizard.hpp"
 
 int main()
 {
-    // Weapon sword("Sword", 1, 10, 10);
+    Weapon sword("Sword", 1, 10, 10); // name, rarity, price, damage
     // Weapon staff("Staff", 1, 10, 10);
     // Weapon rock("Rock", 1, 10, 10);
 

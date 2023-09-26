@@ -3,11 +3,6 @@
 #include <iostream>
 #include <string>
 
-Weapon::~Weapon() { std::cout << "Weapon destructor called" << std::endl; }
-Weapon::Weapon(std::string name, size_t rarity, int price, int damage)
-    : Item(name, rarity, price), damage(damage)
-{
-}
 void Weapon::displayInfo()
 {
     std::cout << "Weapon: " << name << std::endl;
@@ -16,5 +11,3 @@ void Weapon::displayInfo()
     std::cout << "Damage: " << damage << std::endl;
     std::cout << std::endl;
 }
-int Weapon::getDamage() const { return damage; }
-int Weapon::getPrice() const { return price; }

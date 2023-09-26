@@ -156,6 +156,7 @@ CMakeFiles/main.dir/home/lois/Documents/cpp/fight_game/src/main.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
+ /home/lois/Documents/cpp/fight_game/src/../include/Item.hpp \
  /home/lois/Documents/cpp/fight_game/src/../include/Knight.hpp \
  /home/lois/Documents/cpp/fight_game/src/../include/Weapon.hpp \
  /home/lois/Documents/cpp/fight_game/src/../include/Wizard.hpp

@@ -41,7 +41,7 @@ class Character
 
   protected: // Protected attributes are accessible by derived classes
     std::string name;
-    int health;
+    int health = 0;
     int strength = 10;
     Inventory inventory;
 };
