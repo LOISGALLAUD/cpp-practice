@@ -8,23 +8,42 @@
 class Character
 {
   public:
-    virtual ~Character();
+    // Constructor & Destructor
+    ~Character() = default;
     Character(std::string name, int health, int strength);
-    virtual void attack(Character &target) = 0;
+
+    // Getters
+    std::string getName() const { return name; }
+    int getHealth() const { return health; }
+    int getStrength() const { return strength; }
+    Inventory getInventory() const { return inventory; }
+
+    // Setters
+    void setName(std::string name) { this->name = name; }
+    void setHealth(int health) { this->health = health; }
+    void setStrength(int strength) { this->strength = strength; }
+
+    // Operators
+    // friend std::ostream &operator<<(std::ostream &os, const Character
+    // &character);
+
+    // Methods
     void displayInfo() const;
     void receiveDamage(int damage);
-    void collect(Item *item_ptr);
-    void equip(Weapon &weapon_ptr);
-    bool isAlive() const;
-    std::string getName() const;
-    Inventory get_inventory() const { return inventory; }
+    virtual void attack(Character &target) = 0; // Pure virtual method
 
-  protected:
+    // void collect(Item *item_ptr);
+    // void equip(Weapon &weapon_ptr);
+
+    // Booleans
+    bool isAlive() const { return health > 0; }
+    // bool hasWeapon() const { return inventory.hasWeapon(); }
+
+  protected: // Protected attributes are accessible by derived classes
     std::string name;
-    int health = 100;
-    int speed = 10;
+    int health;
     int strength = 10;
-    int magic = 10;
     Inventory inventory;
 };
+
 #endif

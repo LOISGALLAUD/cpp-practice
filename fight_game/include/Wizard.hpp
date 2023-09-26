@@ -6,7 +6,9 @@
 class Wizard : public Character
 {
   public:
-    Wizard(std::string name);
+    // Constructor & Destructor
+    ~Wizard() = default;
+    Wizard(std::string name) : Character(name, 80, 100) {}
     void attack(Character &target) override;
 };
 #endif

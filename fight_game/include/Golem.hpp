@@ -1,11 +1,14 @@
 #ifndef GOLEM_HPP
 #define GOLEM_HPP
 #include "Character.hpp"
-#include <string>
 #include <iostream>
-class Golem : public Character {
-    public:
-        Golem(std::string name);
-        void attack(Character& target) override;
+#include <string>
+class Golem : public Character
+{
+  public:
+    // Constructor & Destructor
+    ~Golem() = default;
+    Golem(std::string name) : Character(name, 200, 100){};
+    void attack(Character &target) override;
 };
 #endif
