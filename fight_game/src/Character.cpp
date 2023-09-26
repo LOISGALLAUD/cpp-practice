@@ -5,18 +5,15 @@ Character::~Character()
 {
     std::cout << "Character destructor called" << std::endl;
 }
-Character::Character(std::string name, int health, int speed, int strength,
-                     int magic)
-    : name(name), health(health), speed(speed), strength(strength), magic(magic)
+Character::Character(std::string name, int health, int strength)
+    : name(name), health(health), strength(strength)
 {
 }
 void Character::displayInfo() const
 {
     std::cout << "Name: " << name << std::endl;
     std::cout << "HP: " << health << std::endl;
-    std::cout << "Speed: " << speed << std::endl;
     std::cout << "Strength: " << strength << std::endl;
-    std::cout << "Magic: " << magic << std::endl;
     std::cout << "Inventory: " << std::endl;
     inventory.displayInventory();
     std::cout << std::endl;

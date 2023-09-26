@@ -1,13 +1,15 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
+
 #include "Inventory.hpp"
 #include "Item.hpp"
 #include <string>
+
 class Character
 {
   public:
     virtual ~Character();
-    Character(std::string name, int health, int speed, int strength, int magic);
+    Character(std::string name, int health, int strength);
     virtual void attack(Character &target) = 0;
     void displayInfo() const;
     void receiveDamage(int damage);
