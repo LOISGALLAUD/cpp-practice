@@ -42,3 +42,41 @@ void Character::collect(Item *item_ptr)
         std::cout << name << " couldn't collect " << item_ptr->getName()
                   << std::endl;
 }
+
+void Character::drop(int index)
+{
+    if (inventory.hasItem(index))
+    {
+        inventory.deleteItem(index);
+        std::cout << name << " dropped item." << std::endl;
+    }
+    else
+        std::cout << name << " couldn't drop item." << std::endl;
+}
+
+void Character::equip(Weapon *weapon_ptr)
+{
+    if (!inventory.hasWeapon())
+    {
+        inventory.addWeapon(weapon_ptr);
+        // Add Strength
+        strength += weapon_ptr->getDamage();
+        std::cout << name << " equipped " << weapon_ptr->getName() << std::endl;
+    }
+    else
+        std::cout << name << " couldn't equip " << weapon_ptr->getName()
+                  << std::endl;
+}
+
+void Character::unequip()
+{
+    if (inventory.hasWeapon())
+    {
+        // Remove Strength
+        strength -= inventory.getWeapon()->getDamage();
+        inventory.deleteWeapon();
+        std::cout << name << " unequipped weapon." << std::endl;
+    }
+    else
+        std::cout << name << " couldn't unequip weapon." << std::endl;
+}

@@ -10,3 +10,14 @@ classe inventaire avec equipements, objets et potions
 
 - [x] Donner des types aux personnages
 - [x] Ajouter la magie (requiert du mana)
+- [x] Ajouter des objets
+- [x] Ajouter des potions
+- [x] Ajouter des équipements
+
+---------------------------
+
+Noms des personnages :
+
+Golem: Gômata
+Knight: Dornar
+Mage: Magnus

@@ -9,24 +9,20 @@ Inventory::~Inventory()
     items.clear();
 }
 
-void Inventory::display() const
+void Inventory::deleteItem(int index)
 {
-    for (auto item : items)
-    {
-        std::cout << "- " << item->getName() << std::endl;
-    }
+    delete items[index];
+    items.erase(items.begin() + index);
 }
 
-void Inventory::addItem(Item *item_ptr)
+void Inventory::deleteWeapon()
 {
-    if (items.size() < max_items)
-    {
-        // Create a new memory space for the item
-        Item *item = new Item(*item_ptr);
-        items.push_back(item);
-    }
-    else
-    {
-        std::cout << "Inventory is full." << std::endl;
-    }
+    delete weapons[0];
+    weapons.clear();
+}
+
+void Inventory::display() const
+{
+    displayItems();
+    displayWeapons();
 }

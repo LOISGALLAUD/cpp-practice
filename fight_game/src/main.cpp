@@ -12,25 +12,10 @@ https://github.com/LOISGALLAUD
 int main()
 {
     Weapon *sword =
-        new Weapon("Sword", 1, 10, 10); // name, rarity, price, damage
+        new Weapon("Sword", 1, 10, 50); // name, rarity, price, damage
 
     Knight dornar("Dornar");
-    // Wizard magnus("Magnus");
-    // Golem gomata("Gomâta");
-
-    dornar.collect(sword);
-    // dornar.collect(sword);
-    // dornar.equip(staff);
-    // magnus.equip(rock);
-
-    // dornar.attack(magnus);
-    // magnus.attack(dornar);
-    // gomata.attack(dornar);
-
-    dornar.displayInventory();
 
     delete sword;
-
-    dornar.displayInventory();
     return 0;
 }

@@ -33,7 +33,9 @@ class Character
     void receiveDamage(int damage);
     virtual void attack(Character &target) = 0; // Pure virtual method
     void collect(Item *item_ptr);
-    // void equip(Weapon *weapon_ptr);
+    void drop(int index);
+    void equip(Weapon *weapon_ptr);
+    void unequip();
 
     // Booleans
     bool isAlive() const { return health > 0; }
