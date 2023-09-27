@@ -12,7 +12,6 @@ void Character::displayInfo() const
     std::cout << "Name: " << name << std::endl;
     std::cout << "HP: " << health << std::endl;
     std::cout << "Strength: " << strength << std::endl;
-    inventory.displayInventory();
     std::cout << std::endl;
 }
 
@@ -27,15 +26,9 @@ void Character::receiveDamage(int damage)
 
 void Character::collect(Item *item_ptr)
 {
-    if (inventory.addItem(item_ptr))
+    if (!inventory.isFull())
         std::cout << name << " collected " << item_ptr->getName() << std::endl;
     else
         std::cout << name << " couldn't collect " << item_ptr->getName()
                   << std::endl;
 }
-
-// void Character::equip(Weapon &weapon)
-// {
-//     inventory.addWeapon(&weapon);
-//     std::cout << name << " equipped " << weapon.getName() << std::endl;
-// }

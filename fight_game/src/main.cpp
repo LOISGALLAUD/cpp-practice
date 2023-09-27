@@ -21,7 +21,7 @@ int main()
     Golem gomata("Gomâta");
 
     dornar.collect(sword);
-    dornar.collect(sword);
+    // dornar.collect(sword);
     // dornar.equip(staff);
     // magnus.equip(rock);
 
@@ -32,5 +32,7 @@ int main()
     dornar.displayInfo();
 
     delete sword;
+
+    dornar.displayInfo();
     return 0;
 }
