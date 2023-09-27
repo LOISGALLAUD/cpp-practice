@@ -17,7 +17,7 @@ class Weapon : public Item
     void setDamage(int damage) { this->damage = damage; };
 
     // Methods
-    void displayInfo() override;
+    void displayInfo();
 
   private:
     int damage = 0;

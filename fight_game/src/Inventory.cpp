@@ -1,11 +1,19 @@
 #include "../include/Inventory.hpp"
 
-void Inventory::displayInventory() const
+Inventory::~Inventory()
 {
-    std::cout << "Inventory:" << std::endl;
+    for (auto item_ptr : items)
+    {
+        delete item_ptr;
+    }
+    items.clear();
+}
+
+void Inventory::display() const
+{
     for (auto item : items)
     {
-        std::cout << item->getName() << std::endl;
+        std::cout << "- " << item->getName() << std::endl;
     }
 }
 
@@ -13,7 +21,8 @@ void Inventory::addItem(Item *item_ptr)
 {
     if (items.size() < max_items)
     {
-        Item *item = item_ptr; // Copy the pointer
+        // Create a new memory space for the item
+        Item *item = new Item(*item_ptr);
         items.push_back(item);
     }
     else

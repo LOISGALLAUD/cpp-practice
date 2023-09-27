@@ -15,6 +15,13 @@ void Character::displayInfo() const
     std::cout << std::endl;
 }
 
+void Character::displayInventory() const
+{
+    std::cout << name << "'s inventory:" << std::endl;
+    inventory.display();
+    std::cout << std::endl;
+}
+
 void Character::receiveDamage(int damage)
 {
     health -= damage;
@@ -27,7 +34,10 @@ void Character::receiveDamage(int damage)
 void Character::collect(Item *item_ptr)
 {
     if (!inventory.isFull())
+    {
+        inventory.addItem(item_ptr);
         std::cout << name << " collected " << item_ptr->getName() << std::endl;
+    }
     else
         std::cout << name << " couldn't collect " << item_ptr->getName()
                   << std::endl;

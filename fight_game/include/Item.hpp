@@ -21,7 +21,7 @@ class Item
     void setPrice(int price) { this->price = price; };
 
     // Methods
-    virtual void displayInfo() = 0;
+    // virtual void displayInfo() = 0;
 
   protected:
     std::string name;

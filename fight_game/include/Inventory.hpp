@@ -1,6 +1,9 @@
 #ifndef INVENTORY_HPP
 #define INVENTORY_HPP
+#include <cstddef>
+#include <iterator>
 #define MAX_ITEMS 10
+#define MAX_WEAPONS 3
 
 #include "Item.hpp"
 #include "Weapon.hpp"
@@ -12,12 +15,14 @@ class Inventory
 {
   public:
     // Constructor & Destructor
-    ~Inventory() = default;
+    ~Inventory();
     Inventory() = default;
 
     // Getters
     std::vector<Item *> getItems() const { return items; }
     Item *getItem(int index) const { return items[index]; }
+    size_t getMaxItems() const { return max_items; }
+    size_t getMaxWeapons() const { return max_weapons; }
 
     // Setters
     void setItems(std::vector<Item *> items) { this->items = items; }
@@ -27,7 +32,7 @@ class Inventory
     void deleteItem(int index) { items.erase(items.begin() + index); }
 
     // Methods
-    void displayInventory() const;
+    void display() const;
     void addItem(Item *item_ptr);
 
     // Booleans
@@ -36,6 +41,8 @@ class Inventory
 
   private:
     size_t max_items = MAX_ITEMS;
+    size_t max_weapons = MAX_WEAPONS;
     std::vector<Item *> items;
+    std::vector<Weapon *> weapons;
 };
 #endif

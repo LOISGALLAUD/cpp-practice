@@ -13,12 +13,10 @@ int main()
 {
     Weapon *sword =
         new Weapon("Sword", 1, 10, 10); // name, rarity, price, damage
-    // Weapon staff("Staff", 1, 10, 10);
-    // Weapon rock("Rock", 1, 10, 10);
 
     Knight dornar("Dornar");
-    Wizard magnus("Magnus");
-    Golem gomata("Gomâta");
+    // Wizard magnus("Magnus");
+    // Golem gomata("Gomâta");
 
     dornar.collect(sword);
     // dornar.collect(sword);
@@ -29,10 +27,10 @@ int main()
     // magnus.attack(dornar);
     // gomata.attack(dornar);
 
-    dornar.displayInfo();
+    dornar.displayInventory();
 
     delete sword;
 
-    dornar.displayInfo();
+    dornar.displayInventory();
     return 0;
 }

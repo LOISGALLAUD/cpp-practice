@@ -29,11 +29,11 @@ class Character
 
     // Methods
     void displayInfo() const;
+    void displayInventory() const;
     void receiveDamage(int damage);
     virtual void attack(Character &target) = 0; // Pure virtual method
     void collect(Item *item_ptr);
-
-    // void equip(Weapon &weapon_ptr);
+    // void equip(Weapon *weapon_ptr);
 
     // Booleans
     bool isAlive() const { return health > 0; }
@@ -42,7 +42,7 @@ class Character
   protected: // Protected attributes are accessible by derived classes
     std::string name;
     int health = 0;
-    int strength = 10;
+    int strength = 0;
     Inventory inventory;
 };
 
