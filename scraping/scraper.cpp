@@ -1,22 +1,24 @@
+#include "algorithm"
+#include "cstring"
 #include "curl/curl.h"
 #include "gumbo.h"
-#include "string"
-#include "cstring"
-#include "algorithm"
 #include "iostream"
+#include "string"
 typedef size_t (*curl_write)(char *, size_t, size_t, std::string *);
 
 std::string strtolower(std::string str)
 {
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
-
     return str;
 }
-std::string str_replace(std::string search, std::string replace, std::string &subject)
+
+std::string str_replace(std::string search, std::string replace,
+                        std::string &subject)
 {
     size_t count;
     for (std::string::size_type pos{};
-         subject.npos != (pos = subject.find(search.data(), pos, search.length()));
+         subject.npos !=
+         (pos = subject.find(search.data(), pos, search.length()));
          pos += replace.length(), ++count)
     {
         subject.replace(pos, search.length(), replace.data(), replace.length());
@@ -82,7 +84,8 @@ std::string find_definitions(GumboNode *node)
 std::string scrape(std::string markup)
 {
     std::string res = "";
-    GumboOutput *output = gumbo_parse_with_options(&kGumboDefaultOptions, markup.data(), markup.length());
+    GumboOutput *output = gumbo_parse_with_options(
+        &kGumboDefaultOptions, markup.data(), markup.length());
 
     res += find_definitions(output->root);
 
@@ -102,17 +105,19 @@ std::string request(std::string word)
 
     if (curl)
     {
-        curl_easy_setopt(curl,
-                         CURLOPT_WRITEFUNCTION,
-                         static_cast<curl_write>([](char *contents, size_t size,
-                                                    size_t nmemb, std::string *data) -> size_t
-                                                 {
-        size_t new_size = size * nmemb;
-        if (data == NULL) {
-          return 0;
-        }
-        data -> append(contents, new_size);
-        return new_size; }));
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,
+                         static_cast<curl_write>(
+                             [](char *contents, size_t size, size_t nmemb,
+                                std::string *data) -> size_t
+                             {
+                                 size_t new_size = size * nmemb;
+                                 if (data == NULL)
+                                 {
+                                     return 0;
+                                 }
+                                 data->append(contents, new_size);
+                                 return new_size;
+                             }));
 
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &result);
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
