@@ -2,8 +2,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
 
-// Fonction de rappel pour écrire les données téléchargées dans un fichier
 size_t WriteData(void *ptr, size_t size, size_t nmemb, void *stream)
 {
     size_t written = fwrite(ptr, size, nmemb, (FILE *)stream);
@@ -19,9 +19,20 @@ int main(int argc, char *argv[])
                   << std::endl;
         return 1;
     }
+    srand(static_cast<unsigned int>(time(0)));
 
     std::string imageUrl = argv[1];
     std::string outputFileName = argv[2];
+    std::vector<std::string> userAgents = {
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Edge/91.0.864.67",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Firefox/90.0"};
+    // std::vector<std::string> proxies = {
+    //     "15.204.161.192:18080",
+    // };
 
     CURL *curl;
     FILE *file;
@@ -33,6 +44,13 @@ int main(int argc, char *argv[])
     {
         curl_easy_setopt(curl, CURLOPT_URL, imageUrl.c_str());
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
+
+        std::string randomUserAgent = userAgents[rand() % userAgents.size()];
+        // std::string randomProxy = proxies[rand() % proxies.size()];
+        // curl_easy_setopt(curl, CURLOPT_PROXY, randomProxy.c_str());
+        curl_easy_setopt(curl, CURLOPT_USERAGENT, randomUserAgent.c_str());
 
         file = fopen(outputFileName.c_str(), "wb");
         if (file)
