@@ -1,11 +1,12 @@
-#include "Segment.h"
+#include "../include/Segment.h"
 
-int main(void) {
+int main(void)
+{
     Point A, B(3, 3); // A(0,0) cf constructeur de Point
-                    // B(3,3)
+                      // B(3,3)
 
     Segment S1(0, 1, 1, 4);
-    Segment S2(A, B); 
+    Segment S2(A, B);
 
     S1.affiche();
     S2.affiche();
